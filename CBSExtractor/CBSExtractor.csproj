@@ -1,0 +1,74 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+	  <Company>Fadil Fadz</Company>
+	  <Copyright>Copyright (c) 2024</Copyright>
+	  <Version>1.0.0.0</Version>
+	  <Authors>Fadil Fadz</Authors>
+	  <Description>Dump CBS update packages from Windows 10 Mobile image.</Description>
+	  <ApplicationManifest>app.manifest</ApplicationManifest>
+    <Platforms>AnyCPU;x86</Platforms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="cabapiwrapper.dll" />
+    <None Remove="pkgcommonmanaged.dll" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="signtool.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sxsexp32.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="toolscommon.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="updatedll.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XmlLite.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Certificates\OEM_App_Test_Cert_2013.cer" />
+    <EmbeddedResource Include="Certificates\OEM_App_Test_Cert_2013.pfx" />
+    <EmbeddedResource Include="Certificates\OEM_HAL_Extension_Test_Cert_2013.cer" />
+    <EmbeddedResource Include="Certificates\OEM_HAL_Extension_Test_Cert_2013.pfx" />
+    <EmbeddedResource Include="Certificates\OEM_Intermediate_Cert.cer" />
+    <EmbeddedResource Include="Certificates\OEM_Intermediate_Cert.pfx" />
+    <EmbeddedResource Include="Certificates\OEM_Intermediate_FFU_Cert.cer" />
+    <EmbeddedResource Include="Certificates\OEM_Intermediate_FFU_Cert.pfx" />
+    <EmbeddedResource Include="Certificates\OEM_PPL_Test_Cert_2013.cer" />
+    <EmbeddedResource Include="Certificates\OEM_PPL_Test_Cert_2013.pfx" />
+    <EmbeddedResource Include="Certificates\OEM_PP_Test_Cert_2013.cer" />
+    <EmbeddedResource Include="Certificates\OEM_PP_Test_Cert_2013.pfx" />
+    <EmbeddedResource Include="Certificates\OEM_Root_CA.cer" />
+    <EmbeddedResource Include="Certificates\OEM_Root_CA.pfx" />
+    <EmbeddedResource Include="Certificates\OEM_Root_CA2.cer" />
+    <EmbeddedResource Include="Certificates\OEM_Test_Cert_2013.cer" />
+    <EmbeddedResource Include="Certificates\OEM_Test_Cert_2013.pfx" />
+    <EmbeddedResource Include="Certificates\OEM_Test_PK_Cert_2013.cer" />
+    <EmbeddedResource Include="Certificates\OEM_Test_PK_Cert_2013.pfx" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CommandLineParser" Version="2.9.1" />
+    <PackageReference Include="Pri.LongPath" Version="2.0.53" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="CabApiWrapper">
+      <HintPath>cabapiwrapper.dll</HintPath>
+    </Reference>
+    <Reference Include="PkgCommonManaged">
+      <HintPath>pkgcommonmanaged.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
